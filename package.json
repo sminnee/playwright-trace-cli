@@ -1,0 +1,41 @@
+{
+  "name": "playwright-trace-cli",
+  "version": "0.1.0",
+  "author": "Sam Minnée <sam@tangerinelabs.nz>",
+  "description": "CLI tool that parses Playwright trace .zip files and outputs structured text summaries",
+  "main": "src/parse.js",
+  "bin": {
+    "playwright-trace-cli": "bin/playwright-trace-cli.js"
+  },
+  "scripts": {
+    "postinstall": "node scripts/postinstall.js",
+    "format": "prettier --write .",
+    "lint": "prettier --check . && eslint .",
+    "lint:fix": "prettier --write --log-level=warn . && eslint --fix .",
+    "test": "echo \"No tests configured\""
+  },
+  "files": [
+    "bin/",
+    "src/",
+    "skills/",
+    "scripts/",
+    ".claude-plugin/"
+  ],
+  "keywords": [
+    "playwright",
+    "trace",
+    "cli",
+    "testing",
+    "claude-code"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "adm-zip": "^0.5.16",
+    "commander": "^13.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.4.2"
+  }
+}

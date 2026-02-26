@@ -1,0 +1,12 @@
+{
+  "name": "playwright-trace-cli",
+  "description": "Analyze Playwright test trace files to debug failures and understand test behavior",
+  "version": "0.1.0",
+  "skills": [
+    {
+      "name": "playwright-trace",
+      "path": "../skills/playwright-trace/SKILL.md",
+      "description": "Analyze Playwright trace .zip files"
+    }
+  ]
+}

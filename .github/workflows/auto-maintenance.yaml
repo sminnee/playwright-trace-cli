@@ -1,0 +1,34 @@
+name: Auto-maintenance
+
+on:
+  schedule:
+    - cron: "0 7 * * 1" # Monday at 7am UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-dependencies:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - run: npm update
+
+      - name: Lint fix
+        run: npm run lint:fix
+
+      - name: Create PR
+        uses: peter-evans/create-pull-request@v7
+        with:
+          commit-message: "chore: update dependencies"
+          title: "chore: update dependencies"
+          body: "Automated dependency update and lint fix."
+          branch: auto-maintenance
+          delete-branch: true
