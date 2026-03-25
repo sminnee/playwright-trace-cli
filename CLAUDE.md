@@ -1,3 +1,5 @@
+@.claude/CLAUDE.local.md
+
 # playwright-trace-cli
 
 CLI tool that parses Playwright trace .zip files and outputs structured text summaries.

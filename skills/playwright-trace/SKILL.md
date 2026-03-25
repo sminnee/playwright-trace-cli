@@ -1,6 +1,6 @@
 ---
 name: playwright-trace
-description: Analyze Playwright test trace files (.zip) to debug test failures and understand test behavior. Use when a Playwright test has failed and you need to understand why; you want to review what a test did step-by-step; you need to inspect network requests made during a test; or you want to extract screenshots from a test run.
+description: Analyze Playwright/E2E test trace files (.zip) to debug failures. INVOKE PROACTIVELY whenever an E2E or Playwright test run fails and a trace is available — locally at test-results/*/trace.zip or linked from CI output — before attempting any fix. Use to identify the exact failure point, inspect screenshots at each step, check network requests, and determine root cause.
 ---
 
 # Playwright Trace Analysis
