@@ -74,6 +74,28 @@ program
   .action((traceZip, opts) => withTrace(traceZip, opts, screenshotCommand));
 
 program
+  .command("self-update")
+  .description("Update playwright-trace-cli by running git pull on the installed repo")
+  .action(() => {
+    const repoDir = path.join(__dirname, "..");
+    const gitDir = path.join(repoDir, ".git");
+
+    if (!fs.existsSync(gitDir)) {
+      console.error("Error: self-update is only available when installed from a git checkout.");
+      process.exit(1);
+    }
+
+    const { execSync } = require("child_process");
+    try {
+      const output = execSync("git pull", { cwd: repoDir, encoding: "utf-8" });
+      console.log(output.trimEnd());
+    } catch (err) {
+      console.error("Error running git pull:", err.message);
+      process.exit(1);
+    }
+  });
+
+program
   .command("install-claude")
   .description("Install the Claude Code skill for Playwright trace analysis")
   .action(() => {
