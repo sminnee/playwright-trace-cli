@@ -60,7 +60,7 @@ playwright-trace-cli network <trace.zip> --step 3
 Extract a screenshot closest to a specific action:
 
 ```bash
-playwright-trace-cli screenshot <trace.zip> --step 3 --out screenshot.png
+playwright-trace-cli screenshot <trace.zip> --step 3
 ```
 
 ## JSON Output
@@ -78,7 +78,7 @@ playwright-trace-cli actions <trace.zip> --json
 2. If failed, use `errors` to see what went wrong — note the step number (#N) of the failure
 3. Use `actions` to see the full sequence of test steps and understand context around the failure
 4. **Check network activity**: use `network --step N` to see what API calls happened during the failing step, and `network --failed` to find any failed requests. This reveals server-side issues, missing data, or unexpected responses
-5. **Inspect the page visually**: use `screenshot --step N --out debug.png` to see exactly what the page looked like at the failing step. This reveals missing elements, loading states, or unexpected UI
+5. **Inspect the page visually**: use `screenshot --step N` to see exactly what the page looked like at the failing step. This reveals missing elements, loading states, or unexpected UI
 
 ## Trace File Location
 

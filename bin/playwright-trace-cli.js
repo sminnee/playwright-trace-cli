@@ -27,6 +27,7 @@ program
 function withTrace(traceZip, options, commandFn) {
   try {
     const trace = parseTrace(traceZip);
+    trace.zipPath = traceZip;
     commandFn(trace, options);
   } catch (err) {
     console.error(`Error: ${err.message}`);
@@ -70,7 +71,7 @@ program
   .argument("<trace.zip>", "Path to Playwright trace ZIP file")
   .option("--json", "Output as JSON")
   .option("--step <n>", "Action number to get screenshot for (required)")
-  .option("--out <path>", "Output file path for the PNG (required)")
+  .option("--out <path>", "Output file path for the PNG (auto-named if omitted)")
   .action((traceZip, opts) => withTrace(traceZip, opts, screenshotCommand));
 
 program
